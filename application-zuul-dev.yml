@@ -1,0 +1,28 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: yadao-zuul-gateway
+zuul:
+  ignored-services: "*"
+  prefix: "/services"
+  routes: #路由的配置
+    plat.serviceId: yadao-plat
+    plat.path: /plat/**
+    product.serviceId: yadao-product
+    product.path: /product/**
+    common.serviceId: yadao-common
+    common.path: /common/**
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds:60000
+#zuul路由配置为serviceid时生效
+ribbon:
+    ReadTimeout=60000
+    ConnectTimeout=60000
+    MaxAutoRetries=0
+    MaxAutoRetriesNextServer=1

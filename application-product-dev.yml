@@ -1,0 +1,19 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: yadao-product
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/yadao-product?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: admin
+ribbon:
+    ReadTimeout=60000
+    ConnectTimeout=60000
+    MaxAutoRetries=0
+    MaxAutoRetriesNextServer=1 
+mybatis-plus:
+  mapper-locations: classpath:cn/yadao/cloud/mapper/*Mapper.xml
+  type-aliases-package: cn.yadao.cloud.domain,cn.yadao.cloud.query
+  

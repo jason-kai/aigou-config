@@ -1,0 +1,11 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: aigou-zuul-gateway-test
+zuul:
+  ignored-services: "*"
+  prefix: "/services"
+  routes: #路由的配置
+    plat.serviceId: aigou-plat
+    plat.path: /plat/**
